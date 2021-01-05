@@ -19,7 +19,7 @@ module.exports = async (context, req) => {
             return Promise.resolve()
         }
         await utils.validateUUIDField(context, `${req.body._id}`, 'The _id field specified in the request body does not match the UUID v4 format.');
-        const collection = await getMongodbCollection('webTemplates');
+        const collection = await getMongodbCollection('Merchants');
         const response = await collection.insertOne(Object.assign(
             {},
             req.body,

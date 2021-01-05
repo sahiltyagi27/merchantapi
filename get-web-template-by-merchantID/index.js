@@ -15,7 +15,7 @@ module.exports = async (context, req) => {
             merchantID: req.params.id
         };
 
-        const collection = await getMongodbCollection('webTemplates');
+        const collection = await getMongodbCollection('Merchants');
 
         const webTemplate = await collection.find(query).toArray();
         if (webTemplate) {
@@ -26,7 +26,7 @@ module.exports = async (context, req) => {
             utils.setContextResError(
                 context,
                 new errors.WebTemplateNotFoundError(
-                    'The webTemplate of specified details doesn\'t exist.',
+                    'The id specified in the URL doesn\'t exist.',
                     404
                 )
             );
